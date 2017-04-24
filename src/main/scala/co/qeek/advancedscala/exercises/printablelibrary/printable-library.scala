@@ -19,13 +19,13 @@ object PrintableInstances {
 object Printable {
   def format[A](thing: A)(implicit printer: Printable[A]): String = printer.format(thing)
 
-  def show[A](thing: A)(implicit printer: Printable[A]): Unit = println(format(thing))
+  def print[A](thing: A)(implicit printer: Printable[A]): Unit = println(format(thing))
 }
 
 object PrintableSyntax {
   implicit class PrintOps[A](value: A) {
     def format(implicit printer: Printable[A]): String = Printable.format(value)
-    def show(implicit printer: Printable[A]): Unit = Printable.show(value)
+    def print(implicit printer: Printable[A]): Unit = Printable.print(value)
   }
 }
 
@@ -41,12 +41,12 @@ object PrintableCat {
 
   def doIt: Unit = {
     val cat = Cat("Hermione", 12, "Auburn")
-    Printable.show(cat)
+    Printable.print(cat)
   }
 
   def doItBetter: Unit = {
     import PrintableSyntax._
     val cat = Cat("Ron", 7, "Red")
-    cat.show
+    cat.print
   }
 }
