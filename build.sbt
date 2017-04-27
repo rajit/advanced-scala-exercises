@@ -1,4 +1,4 @@
-name := "cats-seed"
+name := "advanced-scala-exercises"
 
 version := "0.0.1"
 
