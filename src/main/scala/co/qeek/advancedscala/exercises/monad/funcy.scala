@@ -1,4 +1,4 @@
-package co.qeek.advancedscala.exercises.functor
+package co.qeek.advancedscala.exercises.monad
 
 import cats.Id
 
